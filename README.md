@@ -31,4 +31,5 @@ And with that, you're ready  to go.
 
 ## Things I learned:
 * Had issues regarding python interpreters. VSCode set to conda initially & zsh terminal set to python installed on mac. Learned about .zshrc. Tried changing both interpreters to homebrew for python by default. VSCode is straightforward. However, with M2 Mac, it wasn't changing despite best research efforts. Ended up just using `brew install python3` and that made it so the zsh terminal uses it by default. Had to give alias though for python3 & pip3 to just python and pip. Then I further learned about virtual enviornments for python because of the way it stores enviornment variables on the system creates dependency issues. The isolation provided by venv prevents dependency conflicts between projects. Hopefully there's a workaround because this is a lil annoying. Luckily, there's a python equivalent for package.json so anyone who clones the repository can get access to the dependencies. It's called requirements.txt and you can generate it through `pip freeze > requirements.txt `. Also learned about pipfiles. But I'll be sticking to requirements.txt for this project. 
-* 
+* Learned about the logger, debug, info, warning, critical
+* Learned more in depth about environment variables after encountering a couple bugs/unexplained *features* in program that worked when shouldn't have
