@@ -6,6 +6,10 @@ from requests.auth import HTTPBasicAuth
 import logging
 import colorlog
 
+
+# ---setup---
+
+
 # Load the .env file
 load_dotenv()
 
@@ -32,25 +36,8 @@ formatter = colorlog.ColoredFormatter(
 handler.setFormatter(formatter)
 logger.addHandler(handler)
 
-# -------
 
-
-def user_query():
-    jira_base_url = input(
-        "Enter your JIRA base URL (e.g., https://your-jira-instance.atlassian.net): "
-    )
-    jira_username = input("Enter your JIRA username (your email): ")
-    jira_api_token = input("Enter your JIRA API token: ")
-    jira_project_name = input("Enter the name of your JIRA project (e.g., W Project): ")
-
-    env_vars = {
-        "JIRA_BASE_URL": jira_base_url,
-        "JIRA_USERNAME": jira_username,
-        "JIRA_API_TOKEN": jira_api_token,
-        "JIRA_PROJECT_NAME": jira_project_name,
-    }
-
-    return env_vars
+# ---functions---
 
 
 def load_env_var(env_var: str):
@@ -63,12 +50,6 @@ def load_env_var(env_var: str):
         logger.debug(f"{env_var} exists in the file")
 
     return val
-
-
-def write_to_env(env_vars: dict):
-    # Put all the environment variables in the .env file
-    for key, value in env_vars.items():
-        set_key(".env", key, value)
 
 
 def get_jira_projects(jira_base_url: str, jira_username: str, jira_token: str):
@@ -139,8 +120,6 @@ if __name__ == "__main__":
     jira_project_name = load_env_var("JIRA_PROJECT_NAME")
 
     logger.info("Environment variables loaded successfully")
-
-    env_vars = ["JIRA_BASE_URL", "JIRA_USERNAME", "JIRA_API_TOKEN", "JIRA_PROJECT_NAME"]
 
     projects = get_jira_projects(jira_base_url, jira_username, api_token)
 
