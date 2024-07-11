@@ -1,4 +1,4 @@
-# TODO JIRA-124: Do something 0
+# TODO JIRA-123: Do something 0
 from dotenv import load_dotenv, set_key
 import os
 import requests
@@ -53,6 +53,7 @@ def load_env_var(env_var: str):
     return val
 
 
+# TODO JIRA-123: Do something 1
 def get_jira_projects(jira_base_url: str, jira_username: str, jira_token: str):
 
     url = f"{jira_base_url}/rest/api/2/project"
@@ -68,7 +69,7 @@ def get_jira_projects(jira_base_url: str, jira_username: str, jira_token: str):
     return response.json()
 
 
-# TODO JIRA-125: Do something 2
+# TODO JIRA-123: Do something 2
 
 
 def select_projects(projects: str):
@@ -117,6 +118,7 @@ def get_project_details(
     return response.json()
 
 
+# only works for one-line comments with the format "TODO JIRA-123: Do something"
 def find_todo_comments(file_path):
 
     try:
@@ -217,6 +219,8 @@ def find_todo_comments(file_path):
         logger.error(f"An error occurred: {e}")
 
 
+# TODO JIRA-123: Do something 4
+
 if __name__ == "__main__":
 
     # Access env variables
@@ -236,3 +240,4 @@ if __name__ == "__main__":
 
     file_comments = find_todo_comments("main.py")
     print(file_comments)
+# TODO JIRA-123: Do something 5
